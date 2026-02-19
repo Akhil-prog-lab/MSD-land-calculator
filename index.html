@@ -3,11 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Uttarakhand Land Area Calculator</title>
+  <title>Uttarakhand Land Area Calculator | MSD Construction</title>
+
   <style>
     body{font-family:system-ui,Arial; background:#f6f7fb; margin:0; padding:24px;}
-    .wrap{max-width:820px; margin:0 auto;}
-    .card{background:#fff; border:1px solid #e6e6e6; border-radius:14px; padding:16px; box-shadow:0 6px 18px rgba(0,0,0,.06);}
+    .wrap{max-width:900px; margin:0 auto;}
+    .card{background:#fff; border:1px solid #e6e6e6; border-radius:16px; padding:18px; box-shadow:0 6px 18px rgba(0,0,0,.06);}
     h1{margin:0 0 8px; font-size:22px;}
     .note{color:#555; font-size:14px; margin:0 0 12px; line-height:1.4;}
     label{display:block; font-weight:700; margin:12px 0 6px; font-size:14px;}
@@ -19,151 +20,246 @@
     .result{margin-top:14px; font-size:18px; font-weight:900;}
     .small{margin-top:6px; color:#555; font-size:13px; line-height:1.35;}
     .pill{display:inline-block; padding:4px 10px; border-radius:999px; background:#f0f1f5; font-size:12px; margin-bottom:10px;}
+
+    /* ===== BRAND HEADER ===== */
+    .brandBar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:14px 16px; border-radius:16px;
+      background:linear-gradient(135deg,#0e0e0e,#2b2b2b);
+      color:#fff; margin-bottom:14px;
+      border:1px solid rgba(0,0,0,.08);
+    }
+    .brandLeft{display:flex; gap:12px; align-items:center; min-width:0;}
+    .logoBox{
+      width:56px; height:56px; border-radius:14px;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.18);
+      overflow:hidden; flex:0 0 auto;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .logoBox img{width:100%; height:100%; object-fit:cover; display:block;}
+    .brandText{min-width:0;}
+    .brandName{
+      font-size:30px; font-weight:1000; line-height:1.05;
+      margin:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+      letter-spacing:.2px;
+    }
+    .brandTag{
+      margin:7px 0 0; font-size:13px; line-height:1.3;
+      color:rgba(255,255,255,.78);
+    }
+    .brandCTA{display:flex; gap:10px; flex:0 0 auto; align-items:center;}
+    .ctaBtn{
+      text-decoration:none;
+      background:#25D366; color:#0b0b0b;
+      font-weight:900; padding:10px 12px;
+      border-radius:12px; border:1px solid rgba(255,255,255,.18);
+      display:inline-flex; align-items:center; gap:8px;
+      white-space:nowrap;
+    }
+    .ctaBtn:hover{filter:brightness(.95);}
+    .subBtn{
+      text-decoration:none; background:transparent; color:#fff;
+      font-weight:800; padding:10px 12px; border-radius:12px;
+      border:1px solid rgba(255,255,255,.22); white-space:nowrap;
+    }
+    .subBtn:hover{background:rgba(255,255,255,.08);}
+
+    /* ===== Floating WhatsApp button ===== */
+    .waFloat{
+      position:fixed; right:16px; bottom:16px;
+      width:56px; height:56px; border-radius:999px;
+      background:#25D366; display:flex; align-items:center; justify-content:center;
+      box-shadow:0 10px 24px rgba(0,0,0,.2);
+      border:1px solid rgba(0,0,0,.12);
+      z-index:999; text-decoration:none;
+    }
+    .waFloat svg{width:26px;height:26px; fill:#0b0b0b;}
   </style>
 </head>
 
 <body>
-<div class="wrap">
-  <div class="card">
-    <div class="pill">Uttarakhand • Nali / Mutthi / Bigha / Biswa / Gaj</div>
-    <h1>Uttarakhand Land Area Converter</h1>
-    <p class="note">Bigha varies by area. Select a Bigha mode that matches your local practice.</p>
+  <div class="wrap">
 
-    <div class="row two">
-      <div>
-        <label>Value</label>
-        <input id="value" type="number" step="any" value="1" />
-      </div>
-      <div>
-        <label>Bigha Mode</label>
-        <select id="bighaMode">
-          <option value="8100">Standard (1 Bigha = 8,100 sq.ft)</option>
-          <option value="25920">Hill (12 Nali) (1 Bigha = 25,920 sq.ft)</option>
-          <option value="custom">Custom</option>
-        </select>
-      </div>
-    </div>
+    <!-- ===== BUSINESS HEADER ===== -->
+    <div class="brandBar">
+      <div class="brandLeft">
+        <div class="logoBox">
+          <!-- Put this image file in same folder as this HTML -->
+          <img src="MSD Engineers and Construction logo.png" alt="MSD Construction Logo">
+        </div>
 
-    <div id="customBighaWrap" style="display:none;">
-      <label>Custom: 1 Bigha = (sq.ft)</label>
-      <input id="customBigha" type="number" step="any" placeholder="e.g., 17424" />
-    </div>
-
-    <div class="row two">
-      <div>
-        <label>From</label>
-        <select id="fromUnit"></select>
+        <div class="brandText">
+          <p class="brandName">MSD Construction</p>
+          <p class="brandTag">Construction • New Property Planning • Dehradun | Quick Land Area Converter</p>
+        </div>
       </div>
-      <div>
-        <label>To</label>
-        <select id="toUnit"></select>
+
+      <div class="brandCTA">
+        <a class="ctaBtn"
+           href="https://wa.me/919997162979?text=Hi%20MSD%20Construction%2C%20I%20need%20help%20for%20construction%20or%20new%20property%20planning%20in%20Dehradun.%20Please%20share%20a%20quote%20and%20site%20visit%20details."
+           target="_blank" rel="noopener">
+          WhatsApp for Quote
+        </a>
+        <a class="subBtn" href="#calculator">Use Calculator</a>
       </div>
     </div>
 
-    <div style="margin-top:12px;">
-      <button id="convertBtn" type="button">Convert</button>
-    </div>
+    <div class="card" id="calculator">
+      <div class="pill">Calculator by MSD Construction</div>
+      <h1>Uttarakhand Land Area Converter</h1>
+      <p class="note">Bigha varies by area. Select a Bigha mode that matches your local practice.</p>
 
-    <div class="result" id="result"></div>
-    <div class="small" id="breakdown"></div>
+      <div class="row two">
+        <div>
+          <label>Value</label>
+          <input id="value" type="number" step="any" value="1" />
+        </div>
+        <div>
+          <label>Bigha Mode</label>
+          <select id="bighaMode">
+            <option value="8100">Standard (1 Bigha = 8,100 sq.ft)</option>
+            <option value="25920">Hill (12 Nali) (1 Bigha = 25,920 sq.ft)</option>
+            <option value="custom">Custom</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="customBighaWrap" style="display:none;">
+        <label>Custom: 1 Bigha = (sq.ft)</label>
+        <input id="customBigha" type="number" step="any" placeholder="e.g., 17424" />
+      </div>
+
+      <div class="row two">
+        <div>
+          <label>From</label>
+          <select id="fromUnit"></select>
+        </div>
+        <div>
+          <label>To</label>
+          <select id="toUnit"></select>
+        </div>
+      </div>
+
+      <div style="margin-top:12px;">
+        <button id="convertBtn" type="button">Convert</button>
+      </div>
+
+      <div class="result" id="result"></div>
+      <div class="small" id="breakdown"></div>
+
+      <!-- CTA inside card -->
+      <div style="margin-top:14px;">
+        <a class="ctaBtn"
+           href="https://wa.me/919997162979?text=Hi%20MSD%20Construction%2C%20I%20used%20your%20land%20area%20calculator.%20I%20want%20estimate%20for%20construction%20or%20new%20property%20in%20Dehradun."
+           target="_blank" rel="noopener"
+           style="display:inline-flex;">
+          Get Estimate on WhatsApp
+        </a>
+      </div>
+    </div>
   </div>
-</div>
 
-<script>
-  const BASE = {
-    "sq.ft": 1,
-    "sq.yd (gaj)": 9,
-    "sq.m": 10.763910416709722,
-    "acre": 43560,
-    "hectare": 107639.10416709722,
+  <!-- Floating WhatsApp button -->
+  <a class="waFloat"
+     href="https://wa.me/919997162979?text=Hi%20MSD%20Construction%2C%20I%20need%20help%20with%20construction%20or%20new%20property%20in%20Dehradun."
+     target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M19.11 17.53c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.6-1.5-1.87-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.48-.84-2.03-.22-.53-.45-.46-.61-.47-.16-.01-.34-.01-.52-.01-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.3 0 1.36.99 2.68 1.13 2.86.14.18 1.95 2.98 4.73 4.18.66.28 1.18.45 1.58.58.66.21 1.26.18 1.73.11.53-.08 1.6-.66 1.83-1.29.23-.63.23-1.17.16-1.29-.07-.12-.25-.2-.52-.34zM16.04 3.2c-6.95 0-12.6 5.54-12.6 12.36 0 2.18.58 4.31 1.69 6.19L3.2 28.8l7.27-1.9c1.84.98 3.92 1.5 6.05 1.5 6.95 0 12.6-5.54 12.6-12.36S22.99 3.2 16.04 3.2zm0 22.1c-1.96 0-3.88-.52-5.55-1.5l-.4-.24-4.32 1.13 1.16-4.1-.26-.42a10.05 10.05 0 0 1-1.56-5.3c0-5.59 4.67-10.14 10.93-10.14S26.97 9.28 26.97 14.87 22.3 25.3 16.04 25.3z"/>
+    </svg>
+  </a>
 
-    "nali": 2160,
-    "mutthi": 2160 / 16,
+  <script>
+    const BASE = {
+      "sq.ft": 1,
+      "sq.yd (gaj)": 9,
+      "sq.m": 10.763910416709722,
+      "acre": 43560,
+      "hectare": 107639.10416709722,
+      "nali": 2160,
+      "mutthi": 2160 / 16,
+      "bigha": 8100,
+      "biswa": 8100 / 20
+    };
 
-    "bigha": 8100,
-    "biswa": 8100 / 20
-  };
+    const units = ["sq.ft","sq.yd (gaj)","sq.m","acre","hectare","nali","mutthi","bigha","biswa"];
 
-  const units = ["sq.ft","sq.yd (gaj)","sq.m","acre","hectare","nali","mutthi","bigha","biswa"];
+    const valueEl = document.getElementById("value");
+    const fromUnit = document.getElementById("fromUnit");
+    const toUnit = document.getElementById("toUnit");
+    const bighaMode = document.getElementById("bighaMode");
+    const customBighaWrap = document.getElementById("customBighaWrap");
+    const customBigha = document.getElementById("customBigha");
+    const resultEl = document.getElementById("result");
+    const breakdownEl = document.getElementById("breakdown");
 
-  const valueEl = document.getElementById("value");
-  const fromUnit = document.getElementById("fromUnit");
-  const toUnit = document.getElementById("toUnit");
-  const bighaMode = document.getElementById("bighaMode");
-  const customBighaWrap = document.getElementById("customBighaWrap");
-  const customBigha = document.getElementById("customBigha");
-  const resultEl = document.getElementById("result");
-  const breakdownEl = document.getElementById("breakdown");
+    function fillSelect(sel, defaultVal){
+      sel.innerHTML = "";
+      units.forEach(u => {
+        const opt = document.createElement("option");
+        opt.value = u;
+        opt.textContent = u;
+        sel.appendChild(opt);
+      });
+      sel.value = defaultVal;
+    }
 
-  function fillSelect(sel, defaultVal){
-    sel.innerHTML = "";
-    units.forEach(u => {
-      const opt = document.createElement("option");
-      opt.value = u;
-      opt.textContent = u;
-      sel.appendChild(opt);
+    fillSelect(fromUnit, "nali");
+    fillSelect(toUnit, "sq.ft");
+
+    function setBighaSqft(){
+      let bSqft;
+      if (bighaMode.value === "custom") {
+        bSqft = Number(customBigha.value);
+        if (!isFinite(bSqft) || bSqft <= 0) bSqft = 8100;
+      } else {
+        bSqft = Number(bighaMode.value);
+      }
+      BASE["bigha"] = bSqft;
+      BASE["biswa"] = bSqft / 20;
+    }
+
+    function fmt(n, max=6){
+      return Number(n).toLocaleString(undefined, { maximumFractionDigits: max });
+    }
+
+    function convert(){
+      setBighaSqft();
+
+      const val = Number(valueEl.value);
+      const from = fromUnit.value;
+      const to = toUnit.value;
+
+      if (!isFinite(val)) {
+        resultEl.textContent = "";
+        breakdownEl.textContent = "Please enter a valid number.";
+        return;
+      }
+
+      const sqft = val * BASE[from];
+      const out = sqft / BASE[to];
+
+      resultEl.textContent = `${fmt(val)} ${from} = ${fmt(out)} ${to}`;
+      breakdownEl.textContent =
+        `Breakdown: ${fmt(val)} × ${fmt(BASE[from])} sq.ft = ${fmt(sqft)} sq.ft → ÷ ${fmt(BASE[to])} = ${fmt(out)}`;
+    }
+
+    bighaMode.addEventListener("change", () => {
+      customBighaWrap.style.display = (bighaMode.value === "custom") ? "block" : "none";
+      convert();
     });
-    sel.value = defaultVal;
-  }
 
-  fillSelect(fromUnit, "nali");
-  fillSelect(toUnit, "sq.ft");
+    customBigha.addEventListener("input", convert);
+    valueEl.addEventListener("input", convert);
+    fromUnit.addEventListener("change", convert);
+    toUnit.addEventListener("change", convert);
 
-  function setBighaSqft(){
-    let bSqft;
-    if (bighaMode.value === "custom") {
-      bSqft = Number(customBigha.value);
-      if (!isFinite(bSqft) || bSqft <= 0) bSqft = 8100;
-    } else {
-      bSqft = Number(bighaMode.value);
-    }
-    BASE["bigha"] = bSqft;
-    BASE["biswa"] = bSqft / 20;
-  }
+    valueEl.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") convert();
+    });
 
-  function fmt(n, max=6){
-    return Number(n).toLocaleString(undefined, { maximumFractionDigits: max });
-  }
-
-  function convert(){
-    setBighaSqft();
-
-    const val = Number(valueEl.value);
-    const from = fromUnit.value;
-    const to = toUnit.value;
-
-    if (!isFinite(val)) {
-      resultEl.textContent = "";
-      breakdownEl.textContent = "Please enter a valid number.";
-      return;
-    }
-
-    const sqft = val * BASE[from];
-    const out = sqft / BASE[to];
-
-    resultEl.textContent = `${fmt(val)} ${from} = ${fmt(out)} ${to}`;
-    breakdownEl.textContent =
-      `Breakdown: ${fmt(val)} × ${fmt(BASE[from])} sq.ft = ${fmt(sqft)} sq.ft → ÷ ${fmt(BASE[to])} = ${fmt(out)}`;
-  }
-
-  bighaMode.addEventListener("change", () => {
-    customBighaWrap.style.display = (bighaMode.value === "custom") ? "block" : "none";
+    document.getElementById("convertBtn").addEventListener("click", convert);
     convert();
-  });
-
-  customBigha.addEventListener("input", convert);
-  valueEl.addEventListener("input", convert);
-  fromUnit.addEventListener("change", convert);
-  toUnit.addEventListener("change", convert);
-
-  valueEl.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") convert();
-  });
-
-  document.getElementById("convertBtn").addEventListener("click", convert);
-
-  convert();
-</script>
-
+  </script>
 </body>
 </html>
